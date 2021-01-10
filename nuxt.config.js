@@ -1,3 +1,5 @@
+import i18n from "./i18n/index";
+
 export default {
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
@@ -29,8 +31,21 @@ export default {
   buildModules: [],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: [],
+  modules: ["@nuxtjs/proxy", "@nuxtjs/axios", ["nuxt-i18n", i18n]],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
+  axios: {
+    proxy: true,
+  },
+  proxy: {
+    "/api": {
+      target:
+        "https://api.amazingtalker.com/v1/guest/teachers/amy-estrada/schedule",
+      pathRewrite: {
+        "^/api": "/",
+        changeOrigin: true,
+      },
+    },
+  },
 };
