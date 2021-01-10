@@ -1,0 +1,86 @@
+[
+  {
+    "gmt": -11,
+    "name": "gmt-11"
+  },
+  {
+    "gmt": -10,
+    "name": "gmt-10"
+  },
+  {
+    "gmt": -9,
+    "name": "gmt-9"
+  },
+  {
+    "gmt": -8,
+    "name": "gmt-8"
+  },
+  {
+    "gmt": -7,
+    "name": "gmt-7"
+  },
+  {
+    "gmt": -6,
+    "name": "gmt-6"
+  },
+  {
+    "gmt": -5,
+    "name": "gmt-5"
+  },
+  {
+    "gmt": -3,
+    "name": "gmt-3"
+  },
+  {
+    "gmt": -2,
+    "name": "gmt-2"
+  },
+  {
+    "gmt": -1,
+    "name": "gmt-1"
+  },
+  {
+    "gmt": 0,
+    "name": "gmt+0"
+  },
+  {
+    "gmt": 1,
+    "name": "gmt+1"
+  },
+  {
+    "gmt": 3,
+    "name": "gmt+3"
+  },
+  {
+    "gmt": 4,
+    "name": "gmt+4"
+  },
+  {
+    "gmt": 5,
+    "name": "gmt+5"
+  },
+  {
+    "gmt": 6,
+    "name": "gmt+6"
+  },
+  {
+    "gmt": 7,
+    "name": "gmt+7"
+  },
+  {
+    "gmt": 8,
+    "name": "gmt+8"
+  },
+  {
+    "gmt": 9,
+    "name": "gmt+9"
+  },
+  {
+    "gmt": 11,
+    "name": "gmt+11"
+  },
+  {
+    "gmt": 13,
+    "name": "gmt+13"
+  }
+]
