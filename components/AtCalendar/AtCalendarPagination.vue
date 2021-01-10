@@ -6,7 +6,7 @@
         :class="{ 'controls_group__item_not-allowed': isCurrentWeek }"
         @mouseenter="ctrlPrevHovered = true"
         @mouseleave="ctrlPrevHovered = false"
-        @click="$emit('prev')"
+        @click="goPrev"
       >
         <at-arrow-icon to-left :color="prevArrowIconColor" />
       </div>
@@ -14,22 +14,31 @@
         class="controls-group__item controls-group__item_next"
         @mouseenter="ctrlNextHovered = true"
         @mouseleave="ctrlNextHovered = false"
-        @click="$emit('next')"
+        @click="goNext"
       >
         <at-arrow-icon :color="nextArrowIconColor" />
       </div>
     </div>
-    <div></div>
+    <div class="at-calendar-pagination__page-info">
+      {{ formattedFromDate }} - {{ endDateDay }}
+    </div>
   </div>
 </template>
 
 <script>
-import { getFirstDateOfTheWeek, isSameDate } from "@/assets/js/utils";
+import {
+  getFirstDateOfTheWeek,
+  isSameDate,
+  formatDateString,
+  padLeft,
+  getDateObj,
+  addDates,
+} from "@/assets/js/utils";
 
 export default {
   props: {
-    dateFrom: {
-      type: Date,
+    fromDate: {
+      type: String,
       default() {
         return getFirstDateOfTheWeek();
       },
@@ -39,26 +48,53 @@ export default {
     return {
       ctrlPrevHovered: false,
       ctrlNextHovered: false,
+      highlightColor: "#02cab9",
+      disabledColor: "#c0c4cc",
     };
   },
   computed: {
+    endDateDay() {
+      const endDate = addDates(this.fromDate, 7);
+      const endDateObj = getDateObj(endDate);
+      const endDateDay = endDateObj.getDate();
+      return padLeft(endDateDay, 2);
+    },
+    formattedFromDate() {
+      return formatDateString(this.fromDate);
+    },
     isCurrentWeek() {
       const firstDateOfTheWeek = getFirstDateOfTheWeek();
-      return isSameDate(this.dateFrom, firstDateOfTheWeek);
+      return isSameDate(this.fromDate, firstDateOfTheWeek);
     },
     prevArrowIconColor() {
-      return this.ctrlPrevHovered && !this.isCurrentWeek
-        ? "#02cab9"
-        : undefined;
+      if (this.isCurrentWeek) {
+        return this.disabledColor;
+      } else if (this.ctrlPrevHovered) {
+        return this.highlightColor;
+      }
     },
     nextArrowIconColor() {
-      return this.ctrlNextHovered ? "#02cab9" : undefined;
+      return this.ctrlNextHovered ? this.highlightColor : undefined;
+    },
+  },
+  methods: {
+    goPrev() {
+      if (!this.isCurrentWeek) {
+        this.$emit("go-prev");
+      }
+    },
+    goNext() {
+      this.$emit("go-next");
     },
   },
 };
 </script>
 
 <style scoped>
+.at-calendar-pagination {
+  display: flex;
+  flex-direction: row;
+}
 .controls-group {
   display: flex;
   flex-direction: row;
@@ -70,6 +106,7 @@ export default {
   border-style: solid;
   width: fit-content;
   height: 28px;
+  user-select: none;
 }
 .controls-group__item:first-child:not(:hover) {
   border-right-style: none;
@@ -93,5 +130,11 @@ export default {
 }
 .controls_group__item_not-allowed:hover {
   cursor: not-allowed;
+  background-color: #fff;
+  border-color: #ebeef5;
+  color: #c0c4cc;
+}
+.at-calendar-pagination__page-info {
+  padding-left: 15px;
 }
 </style>

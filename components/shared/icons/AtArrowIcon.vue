@@ -22,7 +22,7 @@ export default {
     },
     color: {
       type: String,
-      default: "#dcdfe6",
+      default: "#606266",
     },
     toLeft: {
       type: Boolean,
