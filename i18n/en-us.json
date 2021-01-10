@@ -1,0 +1,40 @@
+{
+  "locale": {
+    "zh-tw": "Traditional Chinese",
+    "zh-cn": "Simplified Chinese",
+    "en-us": "English"
+  },
+  "week": {
+    "Mon": "Mon",
+    "Tue": "Tue",
+    "Wed": "Wed",
+    "Thu": "Thu",
+    "Fri": "Fri",
+    "Sat": "Sat",
+    "Sun": "Sun"
+  },
+  "timezone": {
+    "message-template": "* All times listed are in your local timezone: {0}",
+    "gmt-11": "(GMT-11) Samoa",
+    "gmt-10": "(GMT-10) Hawaii, Aleutian",
+    "gmt-9": "(GMT-09) Alaska",
+    "gmt-8": "(GMT-08) Vancouver, Los Angeles",
+    "gmt-7": "(GMT-07) Denver",
+    "gmt-6": "(GMT-06) Mexico City, Chicago",
+    "gmt-5": "(GMT-05) New York, Santiago, Toronto",
+    "gmt-3": "(GMT-03) Buenos Aires",
+    "gmt-2": "(GMT-02) DeNoronha",
+    "gmt-1": "(GMT-01) Cape Verde",
+    "gmt+0": "(GMT+00) UTC London, Lisbon",
+    "gmt+1": "(GMT+01) Paris, Berlin",
+    "gmt+3": "(GMT+03) Moscow, Istanbul, Nairobi, Athens",
+    "gmt+4": "(GMT+04) Dubai",
+    "gmt+5": "(GMT+05) Karachi",
+    "gmt+6": "(GMT+06) Dhaka, Almaty",
+    "gmt+7": "(GMT+07) Jakarta, Bangkok",
+    "gmt+8": "(GMT+08) Taipei, Singapore, Shanghai, Hong Kong",
+    "gmt+9": "(GMT+09) Tokyo, Seoul",
+    "gmt+11": "(GMT+11) Vladivostok, Melbourne, Sydney, Brisbane",
+    "gmt+13": "(GMT+13) Auckland, Fiji"
+  }
+}
